@@ -3,22 +3,32 @@
     {
       "name": "RejectLead",
       "page": "leadDetail",
-      "object": "lead"   
+      "label": "Reject Lead",
+      "object": "Lead"   
     },
     {
       "name": "CreateLead",
       "page": "leadDetail",
-      "object": "lead"   
+      "label": "Create Lead",
+      "object": "Lead"   
     },
     {
       "name": "QualifyOpportunity",
       "page": "accountDetail",
-      "object": "account"     
+      "label": "Qualify Opportunity",
+      "object": "Account"     
     },
     {
       "name": "CreateOppoturnity",
       "page": "accountDetail",
-      "object": "account"
+      "label": "Create Opportunity",
+      "object": "Account"
+    },
+    {
+      "name": "UpdateOppoturnity",
+      "page": "accountDetail",
+      "label": "Update Opportunity",
+      "object": "Account"
     }
   ]
 }
