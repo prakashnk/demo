@@ -1,14 +1,14 @@
 {
-  "posts": [
+  "test": [
     { "id": 1, "title": "Post 1" },
     { "id": 2, "title": "Post 2" },
     { "id": 3, "title": "Post 3" }
   ],
-  "comments": [
+  "prakash": [
     { "id": 1, "body": "some comment", "postId": 1 },
     { "id": 2, "body": "some comment", "postId": 1 }
   ],
-  "profile": {
+  "kumar": {
     "name": "typicode"
   }
 }
