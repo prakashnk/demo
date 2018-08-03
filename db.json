@@ -1,33 +1,15 @@
 {
   "actions": [
     {
-      "name": "RejectLead",
+      "name": "LeadToOpportunity",
       "page": "leadDetail",
-      "label": "Reject Lead",
+      "label": "Convert a lead to an opporutnity",
       "object": "Lead"   
     },
     {
-      "name": "CreateLead",
-      "page": "leadDetail",
-      "label": "Create Lead",
-      "object": "Lead"   
-    },
-    {
-      "name": "QualifyOpportunity",
+      "name": "CreateContact",
       "page": "accountDetail",
-      "label": "Qualify Opportunity",
-      "object": "Account"     
-    },
-    {
-      "name": "CreateOppoturnity",
-      "page": "accountDetail",
-      "label": "Create Opportunity",
-      "object": "Account"
-    },
-    {
-      "name": "UpdateOppoturnity",
-      "page": "accountDetail",
-      "label": "Update Opportunity",
+      "label": "Create Contact for Account",
       "object": "Account"
     }
   ]
