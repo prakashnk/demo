@@ -13,7 +13,7 @@
       "object": "Account"
     },
     {
-      "name": "RejectLead",
+       "name": "RejectLead",
       "page": "leadDetail",
       "label": "Reject a lead",
       "object": "Lead"
