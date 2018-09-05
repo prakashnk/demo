@@ -4,7 +4,7 @@
       "name": "LeadToOpportunity",
       "page": "leadDetail",
       "label": "Convert a lead to an opporutnity",
-      "object": "Lead"   
+      "object": "Lead"
     },
     {
       "name": "CreateContact",
@@ -13,13 +13,43 @@
       "object": "Account"
     },
     {
-        "name": "RejectLead",
-        "page": "leadDetail",
-        "label": "Reject a lead",
-        "object": "Lead",
-        "visibility": {
-				    "condition": "StatusCode  == 'UNQUALIFIED'"
-			  }
+      "name": "RejectLead",
+      "page": "leadDetail",
+      "label": "Reject a lead",
+      "object": "Lead",
+      "visibility": {
+        "condition": "StatusCode  == 'UNQUALIFIED'"
+      },
+      "api": {
+        "rest": {
+          "URI": "crmRestApi/resources/latest/leads/",
+          "method": "POST",
+          "payload": {
+            "leadId": "leads.LeadId",
+            "AssignmentStatusCode": "REJECTED",
+            "RejectReasonCode": "$ReasonCode",
+            "RejectComment": "$RejectComment",
+            "LeadAcceptedFlag": "N",
+            "RejectByUserId": "$$UserId",
+            "OwnerId": "$$OwnerId"
+          }
+        },
+        "userInput": [
+          {
+            "name": "ReasonCode",
+            "description": "This is reason code",
+            "type": "String",
+            "validValues": {
+              "URI": "crmRestApi/resources/latest/reasonCode/"
+            }
+          },
+          {
+            "name": "RejectComment",
+            "description": "This is reject comment",
+            "type": "String"
+          }
+        ]
+      }
     }
   ]
 }
