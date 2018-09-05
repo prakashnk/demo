@@ -11,6 +11,12 @@
       "page": "accountDetail",
       "label": "Create Contact for Account",
       "object": "Account"
+    },
+    {
+        "name": "RejectLead",
+        "page": "leadDetail",
+        "label": "Reject a lead",
+        "object": "Lead"
     }
   ]
 }
