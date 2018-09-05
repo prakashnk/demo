@@ -13,10 +13,13 @@
       "object": "Account"
     },
     {
-       "name": "RejectLead",
-      "page": "leadDetail",
-      "label": "Reject a lead",
-      "object": "Lead"
+        "name": "RejectLead",
+        "page": "leadDetail",
+        "label": "Reject a lead",
+        "object": "Lead",
+        "visibility": {
+				    "condition": "StatusCode  == 'UNQUALIFIED'"
+			  }
     }
   ]
 }
