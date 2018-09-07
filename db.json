@@ -18,7 +18,7 @@
       "label": "Reject a lead",
       "object": "Lead",
       "visibility": {
-        "condition": "StatusCode=='UNQUALIFIED'"
+         "condition": "StatusCode=='UNQUALIFIED'"
       },
       "api": {
         "rest": {
