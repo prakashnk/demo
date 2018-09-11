@@ -64,7 +64,7 @@
 		},
 		"userInput": [{
 				"name": "$ReasonCode",
-				"description": "resourceBundleId",
+				"displayLabel": "Reason Code",
 				"attribute": "leads.RejectReasonCode",
 				"type": "String",
 				"validValues": {
@@ -74,7 +74,7 @@
 			},
 			{
 				"name": "$RejectComment",
-				"description": "resourceBundleId",
+				"displayLabel": "Reject Comment",
 				"attribute": "leads.RejectComment",
 				"type": "String"
 			}
