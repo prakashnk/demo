@@ -4,7 +4,10 @@
       "name": "LeadToOpportunity",
       "page": "leadDetail",
       "label": "Convert a lead to an opporutnity",
-      "object": "Lead"
+      "object": "Lead",
+      "visibility": {
+         "condition": "StatusCode!='CONVERTED'"
+      }
     },
     {
       "name": "CreateContact",
