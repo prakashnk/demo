@@ -21,7 +21,7 @@
       "label": "Reject a lead",
       "object": "Lead",
       "visibility": {
-         "condition": "StatusCode=='UNQUALIFIED' || StatusCode=='CONVERTED'"
+         "condition": "StatusCode=='UNQUALIFIED' or StatusCode=='CONVERTED'"
       },
       "api": {
 		"rest": {
