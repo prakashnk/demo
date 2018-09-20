@@ -117,6 +117,32 @@
 					}
 				}]
 			}
+		},
+		{
+			"name": "AddSalesLeadNote",
+			"page": "leadDetail",
+			"label": "Add Sales Lead Note",
+			"object": "Lead",
+			"visibility": {
+				"condition": "StatusCode == 'CONVERTED'"
+			},
+			"api": {
+				"rest": {
+					"href": "/crmRestApi/resources/11.13.17.11/leads/{LeadId}/child/Note",
+					"method": "POST",
+					"content-type": "application/vnd.oracle.adf.action+json",
+					"requestPayload": [{
+						"name": "NoteTxt",
+						"value": "$NoteTxt",
+						"mandatory": true
+					}]
+				},
+				"userInput": [{
+					"name": "$NoteTxt",
+					"displayLabel": "Enter Notes",
+					"type": "string"
+				}]
+			}
 		}
 	]
 }
