@@ -1,87 +1,122 @@
 {
-  "actions": [
-    {
-      "name": "LeadToOpportunity",
-      "page": "leadDetail",
-      "label": "Convert a lead to an opporutnity",
-      "object": "Lead",
-      "visibility": {
-         "condition": "StatusCode!='CONVERTED'"
-      }
-    },
-    {
-      "name": "CreateContact",
-      "page": "accountDetail",
-      "label": "Create Contact for Account",
-      "object": "Account"
-    },
-    {
-      "name": "RejectLead",
-      "page": "leadDetail",
-      "label": "Reject a lead",
-      "object": "Lead",
-      "visibility": {
-         "condition": "StatusCode=='UNQUALIFIED' or StatusCode=='CONVERTED'"
-      },
-      "api": {
-		"rest": {
-			"href": "crmRestApi/resources/latest/leads/",
-			"method": "POST",
-			"content-type": "application/vnd.oracle.adf.action+json",
-			"requestPayload": [{
-					"name": "leadId",
-					"value": "leads.LeadId",
-					"mandatory": true
-				},
-				{
-					"name": "AssignmentStatusCode",
-					"value": "REJECTED",
-					"mandatory": true
-				},
-				{
-					"name": "RejectReasonCode",
-					"value": "$ReasonCode",
-					"mandatory": true
-				},
-				{
-					"name": "RejectComment",
-					"value": "$RejectComment",
-					"mandatory": true
-				},
-				{
-					"name": "LeadAcceptedFlag",
-					"value": "N",
-					"mandatory": true
-				},
-				{
-					"name": "RejectByUserId",
-					"value": "$$UserId",
-					"mandatory": true
-				},
-				{
-					"OwnerId": "OwnerId",
-					"value": "$$OwnerId",
-					"mandatory": true
-				}
-			]
-		},
-		"userInput": [{
-				"name": "$ReasonCode",
-				"displayLabel": "Reason Code",
-				"attribute": "leads.RejectReasonCode",
-				"type": "String",
-				"validValues": {
-					"href": "crmRestApi/resources/latest/reasonCode/",
-					"method": "POST"
-				}
-			},
-			{
-				"name": "$RejectComment",
-				"displayLabel": "Reject Comment",
-				"attribute": "leads.RejectComment",
-				"type": "String"
+	"actions": [{
+			"name": "LeadToOpportunity",
+			"page": "leadDetail",
+			"label": "Convert a lead to an opporutnity",
+			"object": "Lead",
+			"visibility": {
+				"condition": "StatusCode!='CONVERTED'"
 			}
-		]}
-    }
-  ]
+		},
+		{
+			"name": "CreateContact",
+			"page": "accountDetail",
+			"label": "Create Contact for Account",
+			"object": "Account"
+		},
+		{
+			"name": "RejectLead",
+			"page": "leadDetail",
+			"label": "Reject a lead",
+			"object": "Lead",
+			"visibility": {
+				"condition": "StatusCode=='UNQUALIFIED' or StatusCode=='CONVERTED'"
+			},
+			"api": {
+				"rest": {
+					"href": "crmRestApi/resources/latest/leads/",
+					"method": "POST",
+					"content-type": "application/vnd.oracle.adf.action+json",
+					"requestPayload": [{
+							"name": "leadId",
+							"value": "leads.LeadId",
+							"mandatory": true
+						},
+						{
+							"name": "AssignmentStatusCode",
+							"value": "REJECTED",
+							"mandatory": true
+						},
+						{
+							"name": "RejectReasonCode",
+							"value": "$ReasonCode",
+							"mandatory": true
+						},
+						{
+							"name": "RejectComment",
+							"value": "$RejectComment",
+							"mandatory": true
+						},
+						{
+							"name": "LeadAcceptedFlag",
+							"value": "N",
+							"mandatory": true
+						},
+						{
+							"name": "RejectByUserId",
+							"value": "$$UserId",
+							"mandatory": true
+						},
+						{
+							"OwnerId": "OwnerId",
+							"value": "$$OwnerId",
+							"mandatory": true
+						}
+					]
+				},
+				"userInput": [{
+						"name": "$ReasonCode",
+						"displayLabel": "Reason Code",
+						"attribute": "leads.RejectReasonCode",
+						"type": "String",
+						"validValues": {
+							"href": "crmRestApi/resources/latest/reasonCode/",
+							"method": "POST"
+						}
+					},
+					{
+						"name": "$RejectComment",
+						"displayLabel": "Reject Comment",
+						"attribute": "leads.RejectComment",
+						"type": "String"
+					}
+				]
+			}
+		},
+		{
+			"name": "AddContact",
+			"page": "leadDetail",
+			"label": "Add a Sales Lead Contact",
+			"object": "Lead",
+			"visibility": {
+				"condition": "StatusCode=='CONVERTED'"
+			},
+			"api": {
+				"rest": {
+					"href": "/crmRestApi/resources/latest/leads/{LeadId}/child/MklLeadTcMembers1",
+					"method": "POST",
+					"content-type": "application/vnd.oracle.adf.action+json",
+					"requestPayload": [{
+						"name": "PartyId",
+						"value": "$PartyId",
+						"mandatory": true
+					}]
+				},
+				"userInput": [{
+					"name": "$PartyId",
+					"displayLabel": "Contact Name",
+					"type": "integer",
+					"validValues": {
+						"href": "/crmRestApi/resources/latest/contacts?fields=PartyId,ContactUniqueName",
+						"queryParam": {
+							"ContactName": "$ContactName"
+						},
+						"method": "GET",
+						"valueShape": "BINARY",
+						"valueKey": "PartyId"
+					}
+				}]
+			}
+		}
+	]
 }
