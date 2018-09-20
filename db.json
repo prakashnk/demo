@@ -68,7 +68,7 @@
 						"name": "$ReasonCode",
 						"displayLabel": "Reason Code",
 						"attribute": "leads.RejectReasonCode",
-						"type": "String",
+						"type": "string",
 						"validValues": {
 							"href": "crmRestApi/resources/latest/reasonCode/",
 							"method": "POST"
@@ -78,7 +78,7 @@
 						"name": "$RejectComment",
 						"displayLabel": "Reject Comment",
 						"attribute": "leads.RejectComment",
-						"type": "String"
+						"type": "string"
 					}
 				]
 			}
