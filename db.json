@@ -26,7 +26,7 @@
 				"rest": {
 					"href": "crmRestApi/resources/latest/leads/",
 					"method": "POST",
-					"content-type": "application/vnd.oracle.adf.action+json",
+					"contentType": "application/vnd.oracle.adf.action+json",
 					"requestPayload": [{
 							"name": "leadId",
 							"value": "leads.LeadId",
@@ -95,7 +95,7 @@
 				"rest": {
 					"href": "/crmRestApi/resources/latest/leads/{LeadId}/child/MklLeadTcMembers1",
 					"method": "POST",
-					"content-type": "application/vnd.oracle.adf.action+json",
+					"contentType": "application/vnd.oracle.adf.action+json",
 					"requestPayload": [{
 						"name": "PartyId",
 						"value": "$PartyId",
@@ -130,7 +130,7 @@
 				"rest": {
 					"href": "/crmRestApi/resources/11.13.17.11/leads/{LeadId}/child/Note",
 					"method": "POST",
-					"content-type": "application/vnd.oracle.adf.action+json",
+					"contentType": "application/vnd.oracle.adf.action+json",
 					"requestPayload": [{
 						"name": "NoteTxt",
 						"value": "$NoteTxt",
