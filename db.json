@@ -82,6 +82,40 @@
 				"type": "String"
 			}
 		]}
-    }
+    },
+    {
+      "name": "AddContact",
+      "page": "leadDetail",
+      "label": "Add a Sales Lead Contact",
+      "object": "Lead",
+      "visibility": {
+         "condition": StatusCode=='CONVERTED'"
+      },
+      "api": {
+		"rest": {
+			"href": "/crmRestApi/resources/latest/leads/{LeadId}/child/MklLeadTcMembers1",
+			"method": "POST",
+			"content-type": "application/vnd.oracle.adf.action+json",
+			"requestPayload": [{
+					"name": "PartyId",
+					"value": "$PartyId",
+					"mandatory": true
+				}
+			]
+		},
+		"userInput": [{
+                       "name" : "$PartyId",
+                       "displayLabel" : "Contact Name",
+                       "type" : "integer",
+                       "validValues" :
+                       {
+                          "href" : "/crmRestApi/resources/latest/contacts?fields=PartyId,ContactUniqueName&q=ContactName LIKE" + $ContactName
+                          "method" : "GET",
+                          "valueShape" : "BINARY",
+                          "valueKey" : "PartyId"
+                       }
+                    }
+		]}
+    } 
   ]
 }
