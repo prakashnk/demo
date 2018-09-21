@@ -1,4 +1,6 @@
-[{
+{
+	"actions": 
+	[{
 		"name": "LeadToOpportunity",
 		"page": "leadDetail",
 		"label": "Convert a lead to an opporutnity",
@@ -147,3 +149,4 @@
 		}
 	}
 ]
+}
